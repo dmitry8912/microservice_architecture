@@ -1,0 +1,5 @@
+api_py/.venv
+api_py/.idea
+
+microservice/.venv
+microservice/.idea
