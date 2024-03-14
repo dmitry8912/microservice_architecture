@@ -30,9 +30,9 @@ async def make_book():
     publish = await rpc_handler.make_book_publish(book_name="Война и мир")
     logging.info("Book published")
     return {
-        "book_cover": book_cover,
-        "layout": layout,
-        "description": description,
+        # "book_cover": book_cover,
+        # "layout": layout,
+        # "description": description,
         "publish": publish
     }
 

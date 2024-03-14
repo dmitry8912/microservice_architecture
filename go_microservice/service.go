@@ -83,11 +83,17 @@ func main() {
 
 			responseBytes, _ := json.Marshal(result)
 
+			nextService := fmt.Sprintf("%v_requests", cfg.NextService)
+
+			if cfg.NextService == "" {
+				nextService = "api_responses"
+			}
+
 			err = ch.PublishWithContext(ctx,
-				"", // exchange
-				fmt.Sprintf("%v_requests", cfg.NextService), // routing key
-				false, // mandatory
-				false, // immediate
+				"",          // exchange
+				nextService, // routing key
+				false,       // mandatory
+				false,       // immediate
 				amqp.Publishing{
 					ContentType:   "text/plain",
 					CorrelationId: d.CorrelationId,
